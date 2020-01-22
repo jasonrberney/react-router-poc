@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
 import HomeContainer from './components/Home/HomeContainer.jsx';
 import Test from './components/Test/Test.jsx';
+import Topics from './components/Topics/Topics.jsx';
 import './static/styles/main.scss';
 
 class App extends Component {
@@ -20,9 +28,37 @@ class App extends Component {
   render() {
 
     return (
-      <div>
+      <Router>
+        <div>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/home">Home</Link>
+              </li>
+              <li>
+                <Link to="/test">Test</Link>
+              </li>
+              <li>
+                <Link to="/topics">Topics</Link>
+              </li>
+            </ul>
+          </nav>
 
-      </div>
+          {/* A <Switch> looks through its children <Route>s and
+              renders the first one that matches the current URL. */}
+          <Switch>
+            <Route path="/home">
+              <HomeContainer title={'home props test'} />
+            </Route>
+            <Route path="/test">
+              <Test />
+            </Route>
+            <Route path="/topics">
+              <Topics />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
     );
   }
 }

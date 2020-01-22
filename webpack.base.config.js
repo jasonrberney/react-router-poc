@@ -68,6 +68,9 @@ module.exports = env => {
             ]
             },
             devtool: 'source-map',
+            devServer: {
+                historyApiFallback: true // this prevents the default browser full page refresh on form submission and link change
+            },
             plugins: [
                 new HtmlWebpackPlugin({ 
                     template: './index.html', 

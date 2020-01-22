@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Home from './Home.jsx';
 
 class HomeContainer extends Component {
@@ -34,4 +35,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(HomeContainer);
+export default withRouter(connect(mapStateToProps)(HomeContainer));
