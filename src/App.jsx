@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 import HomeContainer from './components/Home/HomeContainer.jsx';
@@ -47,6 +48,12 @@ class App extends Component {
           {/* A <Switch> looks through its children <Route>s and
               renders the first one that matches the current URL. */}
           <Switch>
+            {/* how to start at a specifc link using Redirect
+            think of the false below as a "loggedIn" boolean */}
+            {/* <Route exact path="/">
+              {false ? <Redirect to="/test" /> : <HomeContainer />}
+            </Route> */}
+
             <Route path="/home">
               <HomeContainer title={'home props test'} />
             </Route>
