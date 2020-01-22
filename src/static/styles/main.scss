@@ -1,0 +1,39 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+.sectionBorderStyle {
+    @include flexDirectionColumn;
+    @include sectionBorderStyle;
+}
+
+.totalsDisplaySection {
+    align-items: center;
+    width: 20%;
+}
+
+.displayRow {
+    @include flexDirectionRow;
+    justify-content: space-between;
+}
+
+.displayColumnAround {
+    @include flexDirectionColumn;
+    align-items: center;
+}
+
+.headerItemWidth {
+    width: 100px;
+}
+
+.contentItemWidth {
+    width: 50%;
+}
+
+
+.cellHoverClass:hover {
+    cursor: pointer;
+}
+
+.headerStyle {
+    align-items: center;
+}
