@@ -37,6 +37,9 @@ class App extends Component {
                 <Link to="/home">Home</Link>
               </li>
               <li>
+                <Link to="/homeTwoTest">Home Two Test</Link>
+              </li>
+              <li>
                 <Link to="/test">Test</Link>
               </li>
               <li>
@@ -56,6 +59,9 @@ class App extends Component {
 
             <Route path="/home">
               <HomeContainer title={'home props test'} />
+            </Route>
+            <Route path="/homeTwoTest">
+              <HomeContainer title={'render our second home!'} />
             </Route>
             <Route path="/test">
               <Test />
