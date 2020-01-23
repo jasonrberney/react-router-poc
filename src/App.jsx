@@ -57,18 +57,20 @@ class App extends Component {
               {false ? <Redirect to="/test" /> : <HomeContainer />}
             </Route> */}
 
-            <Route path="/home">
+            <Route exact path="/home">
               <HomeContainer title={'home props test'} />
             </Route>
-            <Route path="/homeTwoTest">
+            <Route exact path="/homeTwoTest">
               <HomeContainer title={'render our second home!'} />
             </Route>
-            <Route path="/test">
-              <Test />
-            </Route>
-            <Route path="/topics">
-              <Topics />
-            </Route>
+            <Route 
+              path="/test"
+              render={(props) => <Test {...props} />}
+            />
+            <Route 
+              path="/topics"
+              render={(props) => <Topics {...props} />}
+            />
           </Switch>
         </div>
       </Router>
