@@ -8,9 +8,20 @@ import {
 } from "react-router-dom";
 
 import HomeContainer from './components/Home/HomeContainer.jsx';
+import Redirector from './components/Redirector/Redirector.jsx';
 import Test from './components/Test/Test.jsx';
 import Topics from './components/Topics/Topics.jsx';
 import './static/styles/main.scss';
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, '\\$&');
+  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+      results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
 class App extends Component {
   constructor(props) {
@@ -23,7 +34,13 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const redirectLink = getParameterByName('redirect');
+    console.log(`Redirect to: ${redirectLink}`);
 
+    this.setState({
+      readyToRedirect: true,
+      redirectLink: redirectLink
+    });
   }
 
   render() {
@@ -31,6 +48,10 @@ class App extends Component {
     return (
       <Router>
         <div>
+          <Redirector 
+            readyToRedirect={this.state.readyToRedirect}
+            redirectLink={this.state.redirectLink}
+          />
           <nav>
             <ul>
               <li>

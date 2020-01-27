@@ -30,9 +30,10 @@ export default function Topics() {
             2nd <Route> here as an "index" page for all topics, or
             the page that is shown when no topic is selected */}
         <Switch>
-          <Route path={`${match.path}/:topicId`}>
-            <Topic />
-          </Route>
+          <Route 
+            path={`${match.path}/:topicId`}
+            render={(props) => <Topic {...props} />}
+          />
           <Route path={match.path}>
             <h3>Please select a topic.</h3>
           </Route>
